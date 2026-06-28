@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Muqsit Sayed | Cloud Engineer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #050510; color: #fff; }
+        
+        /* NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; position: fixed; width: 100%; top: 0; background: rgba(5,5,16,0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #ff990022; }
+        nav .logo { font-size: 1.4em; font-weight: 700; color: #ff9900; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul a { color: #ccc; text-decoration: none; font-size: 0.95em; transition: color 0.3s; }
+        nav ul a:hover { color: #ff9900; }
+
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 20px 60px; background: radial-gradient(ellipse at top, #1a0a00 0%, #050510 60%); }
+        .hero-inner { max-width: 750px; }
+        .hero .tag { display: inline-block; background: #ff990015; border: 1px solid #ff9900; color: #ff9900; padding: 6px 18px; border-radius: 30px; font-size: 0.85em; margin-bottom: 25px; letter-spacing: 1px; }
+        .hero h1 { font-size: 3.8em; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
+        .hero h1 span { color: #ff9900; }
+        .hero p { color: #aaa; font-size: 1.15em; line-height: 1.8; margin-bottom: 35px; }
+        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: #ff9900; color: #000; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1em; transition: all 0.3s; }
+        .btn-primary:hover { background: #ffb347; transform: translateY(-2px); }
+        .btn-secondary { border: 1px solid #ff9900; color: #ff9900; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1em; transition: all 0.3s; }
+        .btn-secondary:hover { background: #ff990015; }
+
+        /* STATS */
+        .stats { display: flex; justify-content: center; gap: 60px; padding: 50px 20px; background: #0d0d1a; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat h2 { font-size: 2.5em; color: #ff9900; font-weight: 800; }
+        .stat p { color: #888; font-size: 0.9em; margin-top: 5px; }
+
+        /* SECTIONS */
+        section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 2em; font-weight: 700; margin-bottom: 10px; }
+        .section-title span { color: #ff9900; }
+        .section-sub { color: #888; margin-bottom: 50px; font-size: 1em; }
+
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-card { background: #0d0d1a; border: 1px solid #ffffff10; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s; }
+        .skill-card:hover { border-color: #ff9900; transform: translateY(-5px); }
+        .skill-card .icon { font-size: 2.5em; margin-bottom: 12px; }
+        .skill-card h3 { font-size: 1em; color: #fff; margin-bottom: 8px; }
+        .skill-card p { color: #777; font-size: 0.85em; }
+
+        /* PROJECTS */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: #0d0d1a; border: 1px solid #ffffff10; border-radius: 12px; padding: 30px; transition: all 0.3s; }
+        .project-card:hover { border-color: #ff9900; transform: translateY(-5px); }
+        .project-card .p-tag { background: #ff990020; color: #ff9900; font-size: 0.75em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
+        .project-card h3 { font-size: 1.2em; margin-bottom: 10px; }
+        .project-card p { color: #888; font-size: 0.9em; line-height: 1.7; }
+        .tech-stack { margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .tech { background: #ffffff08; border: 1px solid #ffffff15; color: #ccc; padding: 3px 10px; border-radius: 5px; font-size: 0.78em; }
+
+        /* ABOUT */
+        .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-text p { color: #aaa; line-height: 1.9; font-size: 1em; margin-bottom: 15px; }
+        .about-highlights { display: flex; flex-direction: column; gap: 15px; }
+        .highlight { background: #0d0d1a; border-left: 3px solid #ff9900; padding: 15px 20px; border-radius: 0 8px 8px 0; }
+        .highlight h4 { color: #ff9900; font-size: 0.9em; margin-bottom: 4px; }
+        .highlight p { color: #888; font-size: 0.85em; }
+
+        /* CONTACT */
+        .contact-inner { text-align: center; background: #0d0d1a; border: 1px solid #ff990030; border-radius: 16px; padding: 60px; }
+        .contact-inner p { color: #aaa; margin-bottom: 30px; font-size: 1.05em; }
+        .contact-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .contact-link { background: #ff990015; border: 1px solid #ff9900; color: #ff9900; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+        .contact-link:hover { background: #ff9900; color: #000; }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 30px; color: #444; font-size: 0.85em; border-top: 1px solid #ffffff08; }
+        footer span { color: #ff9900; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">AMS</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="tag">☁️ Open to Internships & Opportunities</div>
+        <h1>Abdul Muqsit<br><span>Sayed</span></h1>
+        <p>CSE (AI/ML) Student & Cloud Computing Enthusiast<br>
+        M.H. Saboo Siddik College of Engineering, Mumbai<br>
+        Building real AWS solutions with Python & boto3</p>
+        <div class="hero-btns">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="#contact" class="btn-secondary">Contact Me</a>
+        </div>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat"><h2>3+</h2><p>AWS Services Hands-on</p></div>
+    <div class="stat"><h2>5+</h2><p>Projects Built</p></div>
+    <div class="stat"><h2>AWS</h2><p>Cloud Practitioner (In Progress)</p></div>
+    <div class="stat"><h2>Python</h2><p>boto3 Automation</p></div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="section-title">Technical <span>Skills</span></div>
+    <div class="section-sub">Technologies I work with</div>
+    <div class="skills-grid">
+        <div class="skill-card"><div class="icon">☁️</div><h3>Amazon Web Services</h3><p>EC2, S3, Lambda, RDS, IAM, VPC</p></div>
+        <div class="skill-card"><div class="icon">🐍</div><h3>Python</h3><p>boto3, automation scripts, data structures</p></div>
+        <div class="skill-card"><div class="icon">🤖</div><h3>AI / ML</h3><p>CSE (AIML) specialization, Amazon Bedrock</p></div>
+        <div class="skill-card"><div class="icon">🐧</div><h3>Linux</h3><p>CLI, file system, server management</p></div>
+        <div class="skill-card"><div class="icon">🔐</div><h3>IAM & Security</h3><p>Policies, roles, least privilege access</p></div>
+        <div class="skill-card"><div class="icon">💰</div><h3>Cost Optimization</h3><p>AWS Budgets, resource monitoring</p></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="section-title">Featured <span>Projects</span></div>
+    <div class="section-sub">Real AWS projects built from scratch</div>
+    <div class="projects-grid">
+        <div class="project-card">
+            <span class="p-tag">S3 + Python</span>
+            <h3>Automated S3 Website Deployment</h3>
+            <p>Built a Python boto3 script to automatically create S3 bucket, upload HTML files, configure public access and host a static website on AWS.</p>
+            <div class="tech-stack"><span class="tech">Python</span><span class="tech">boto3</span><span class="tech">S3</span><span class="tech">AWS</span></div>
+        </div>
+        <div class="project-card">
+            <span class="p-tag">EC2 + Linux</span>
+            <h3>EC2 Web Server Deployment</h3>
+            <p>Deployed and configured an nginx web server on EC2, set up security groups, managed inbound rules and served a custom webpage.</p>
+            <div class="tech-stack"><span class="tech">EC2</span><span class="tech">nginx</span><span class="tech">Linux</span><span class="tech">Security Groups</span></div>
+        </div>
+        <div class="project-card">
+            <span class="p-tag">Serverless</span>
+            <h3>AWS Lambda Serverless Function</h3>
+            <p>Created a serverless web application using AWS Lambda with a public Function URL — zero server management required.</p>
+            <div class="tech-stack"><span class="tech">Lambda</span><span class="tech">Serverless</span><span class="tech">Function URL</span></div>
+        </div>
+        <div class="project-card">
+            <span class="p-tag">Database</span>
+            <h3>RDS MySQL Database Setup</h3>
+            <p>Configured and deployed a managed MySQL database on AWS RDS with free tier settings and proper subnet configuration.</p>
+            <div class="tech-stack"><span class="tech">RDS</span><span class="tech">MySQL</span><span class="tech">AWS</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-title">About <span>Me</span></div>
+    <div class="section-sub">Who I am</div>
+    <div class="about-inner">
+        <div class="about-text">
+            <p>I'm Abdul Muqsit Sayed, a Computer Science (AI/ML) student at M.H. Saboo Siddik College of Engineering, Mumbai. I'm passionate about Cloud Computing and building real, scalable infrastructure on AWS.</p>
+            <p>I believe in learning by doing — every project I build is deployed on real AWS infrastructure, not just theory. I'm actively working towards my AWS Cloud Practitioner certification and looking for internship opportunities in Cloud/DevOps.</p>
+        </div>
+        <div class="about-highlights">
+            <div class="highlight"><h4>🎓 Education</h4><p>B.E. CSE (AI/ML) — M.H. Saboo Siddik College of Engineering</p></div>
+            <div class="highlight"><h4>☁️ Cloud Focus</h4><p>AWS — EC2, S3, Lambda, RDS, IAM, boto3 automation</p></div>
+            <div class="highlight"><h4>🎯 Goal</h4><p>Cloud / DevOps Engineer — Open to internships in Germany, Canada, Australia, UK & Remote</p></div>
+            <div class="highlight"><h4>📜 Certification</h4><p>AWS Cloud Practitioner — In Progress</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-inner">
+        <div class="section-title">Let's <span>Connect</span></div>
+        <p>Open to internship opportunities, collaborations, and cloud projects.<br>Feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:sayedabdulmuqsit11@gmail.com" class="contact-link">📧 Email Me</a>
+            <a href="#" class="contact-link">💼 LinkedIn</a>
+            <a href="#" class="contact-link">🐙 GitHub</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Built & deployed on <span>AWS S3</span> using <span>Python boto3</span> — Abdul Muqsit Sayed © 2026</p>
+</footer>
+
+</body>
+</html>
